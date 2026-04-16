@@ -1,0 +1,93 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= name %> | <%= pageTitle %></title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #0a0a23; color: white; }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #12123e;
+    }
+    .logo { color: #a855f7; }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links li { margin-left: 25px; }
+    .nav-links a { text-decoration: none; color: white; transition: 0.3s; }
+    .nav-links a:hover { color: #a855f7; }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 50px;
+      min-height: 90vh;
+    }
+    .hero-text { max-width: 500px; }
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text span { color: #a855f7; }
+    .hero-text p { margin: 20px 0; color: #ccc; }
+
+    .btn {
+      background: #a855f7;
+      padding: 10px 20px;
+      margin-right: 15px;
+      text-decoration: none;
+      color: white;
+      border-radius: 5px;
+    }
+    .btn-outline {
+      border: 2px solid #a855f7;
+      background: transparent;
+    }
+    .hero-img img { width: 350px; }
+
+    @media (max-width: 768px) {
+      .hero { flex-direction: column; text-align: center; }
+      .hero-img img { width: 250px; margin-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <h2 class="logo"><%= name %></h2>
+
+      <ul class="nav-links">
+        <% navLinks.forEach(link => { %>
+          <li><a href="<%= link.href %>"><%= link.label %></a></li>
+        <% }) %>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>
+        <%= greeting %>, I'm 
+        <span><%= fullName %></span>
+      </h1>
+
+      <p><%= tagline %></p>
+
+      <a href="/project" class="btn"><%= primaryBtn %></a>
+      <a href="/contact" class="btn btn-outline"><%= secondaryBtn %></a>
+    </div>
+
+    <div class="hero-img">
+      <img src="<%= imageUrl %>" alt="developer">
+    </div>
+  </sec
+  tion>
+
+</body>
+</html>

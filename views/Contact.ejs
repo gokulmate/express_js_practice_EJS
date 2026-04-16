@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle %> <%= name %></title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a23;
+      color: white;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: #12123e;
+    }
+
+    .logo { color: #923ae5; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .nav-links a:hover {
+      color: #a855f7;
+    }
+
+    .page-content {
+      padding: 60px 50px;
+    }
+
+    .page-content h1 {
+      margin-bottom: 20px;
+    }
+
+    .page-content p {
+      color: #ccc;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #a855f7;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <h2 class="logo"><%= name %></h2>
+
+    <ul class="nav-links">
+      <% navLinks.forEach(link => { %>
+        <li>
+          <a href="<%= link.href %>"><%= link.label %></a>
+        </li>
+      <% }) %>
+    </ul>
+  </nav>
+</header>
+
+<div class="page-content">
+
+  <% contacts.forEach(item => { %>
+  <div class="card">
+    <h3><%= item.label %></h3>
+    <p><%= item.value %></p>
+  </div>
+<% }) %>
+
+  <a href="/" class="back-link">← Back Home</a>
+
+</div>
+
+</body>
+</html>
